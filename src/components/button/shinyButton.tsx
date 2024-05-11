@@ -1,8 +1,17 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const ShinyButton = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    navigate("/login");
+  };
+
   return (
     <motion.button
+      onClick={handleSubmit}
       initial={{ "--x": "100%", scale: 1 }}
       animate={{ "--x": "-100%" }}
       whileTap={{ scale: 0.97 }}
@@ -23,9 +32,12 @@ const ShinyButton = () => {
       }}
       className="px-6 py-2 rounded-md relative radial-gradient"
     >
-      <span className="text-neutral-100 tracking-wide font-light h-full w-full block relative linear-mask">
+      <a
+        className="text-neutral-100 tracking-wide font-light h-full w-full block relative linear-mask"
+        href="#"
+      >
         Get Started
-      </span>
+      </a>
       <span className="block absolute inset-0 rounded-md p-px linear-overlay" />
     </motion.button>
   );

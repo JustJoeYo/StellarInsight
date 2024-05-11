@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <>
-      <footer className="relative px-4 pt-20 bg-[#06cdd47e]">
+      <footer className="relative px-4 pt-20 bg-transparent">
         <nav
           aria-label="Footer Navigation"
           className="w-full mb-10 flex flex-col gap-10 sm:flex-row justify-center items-center"

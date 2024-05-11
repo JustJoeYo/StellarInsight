@@ -1,5 +1,15 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { LandingPage } from "./pages/types";
+import {
+  LandingPage,
+  Login,
+  Register,
+  About,
+  PrivacyPolicy,
+  TOS,
+  Support,
+  Dashboard,
+  ForgotPassword,
+} from "./pages/types";
 
 export default function App() {
   return (
@@ -7,8 +17,14 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<>Login not deved yet</>} />
-          <Route path="/register" element={<>Register not deved yet</>} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/tos" element={<TOS />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
       </Router>
     </div>
