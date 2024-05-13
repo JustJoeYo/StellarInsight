@@ -1,12 +1,14 @@
+import { motion } from "framer-motion";
+
 export default function Navbar() {
   return (
     <>
-      <header className="relative flex max-w-screen-xl flex-col overflow-hidden px-4 py-4 md:mx-auto md:flex-row md:items-center text-slate-700">
+      <header className="z-50 relative flex w-screen flex-col overflow-hidden px-4 py-4 md:mx-auto md:flex-row md:items-center bg-[#202021] border border-borderColor">
         <a
-          href="#"
-          className="flex cursor-pointer items-center whitespace-nowrap text-2xl font-black"
+          href="/dashboard"
+          className="flex cursor-pointer items-center whitespace-nowrap text-2xl text-white"
         >
-          <span className="mr-2 text-4xl text-cyan-500">
+          <span className="mr-2 text-4xl text-violet-800">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
@@ -22,11 +24,18 @@ export default function Navbar() {
               />
             </svg>
           </span>
-          the future
+          <motion.h1
+            className="text-3xl font-['Light'] flex justify-center"
+            animate={{ opacity: [1, 0.5, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <span className="glow-purple">Stellar</span>{" "}
+            <span className="glow-white text-violet-800">Insight</span>
+          </motion.h1>
         </a>
         <input type="checkbox" className="peer hidden" id="navbar-open" />
         <label
-          className="absolute top-5 right-7 cursor-pointer md:hidden"
+          className="absolute top-6 right-7 cursor-pointer md:hidden "
           htmlFor="navbar-open"
         >
           <span className="sr-only">Toggle Navigation</span>
@@ -36,11 +45,11 @@ export default function Navbar() {
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M4 6h16M4 12h16M4 18h16"
             />
           </svg>

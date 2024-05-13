@@ -7,6 +7,8 @@
   --solid-color-background: 15, 15, 15;
   --overlay-color: 255, 255, 255;
 
+  height: 100%;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -19,6 +21,12 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "Light"; /*Can be any text*/
+  src: local("open-sans-condensed.bold.ttf"),
+    url("./fonts/open-sans-condensed.bold.ttf") format("truetype");
 }
 
 .radial-gradient {
@@ -57,4 +65,42 @@
     linear-gradient(black, black);
   mask-composite: exclude;
   -webkit-mask-composite: xor;
+}
+
+@keyframes glow-purple {
+  0% {
+    text-shadow: 0 0 5px #9d4edd, 0 0 10px #9d4edd, 0 0 15px #9d4edd,
+      0 0 20px #9d4edd;
+  }
+  50% {
+    text-shadow: 0 0 10px #9d4edd, 0 0 20px #9d4edd, 0 0 30px #9d4edd,
+      0 0 40px #9d4edd;
+  }
+  100% {
+    text-shadow: 0 0 5px #9d4edd, 0 0 10px #9d4edd, 0 0 15px #9d4edd,
+      0 0 20px #9d4edd;
+  }
+}
+
+@keyframes glow-white {
+  0% {
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff,
+      0 0 20px #ffffff;
+  }
+  50% {
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff,
+      0 0 40px #ffffff;
+  }
+  100% {
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff,
+      0 0 20px #ffffff;
+  }
+}
+
+.glow-purple {
+  animation: glow-purple 2s ease-in-out infinite;
+}
+
+.glow-white {
+  animation: glow-white 2s ease-in-out infinite;
 }

@@ -8,6 +8,7 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(storedIsChecked);
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(e.target.checked);
@@ -20,12 +21,27 @@ function Register() {
     }
   };
 
+  const handleConfirmPasswordChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setConfirmPassword(e.target.value);
+  };
+
   const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
+  };
+
+  const validatePasswords = () => {
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return false;
+    }
+
+    return true;
   };
 
   const validateForm = () => {
@@ -35,6 +51,11 @@ function Register() {
 
     if (!emailRegex.test(email)) {
       alert("Please enter a valid email.");
+      return false;
+    }
+
+    if (!validatePasswords()) {
+      alert("Passwords do not match.");
       return false;
     }
 
@@ -165,6 +186,19 @@ function Register() {
                       placeholder="Password"
                       value={password}
                       onChange={handlePasswordChange}
+                    />
+                  </div>
+                </div>
+                <div className="mb-4">
+                  <div className="relative flex w-full flex-wrap items-stretch">
+                    <input
+                      type="password"
+                      id="confirm-password"
+                      className="relative block flex-auto cursor-text appearance-none bg-white rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-blue-500 focus:bg-white text-gray-600 focus:shadow"
+                      name="confirm-password"
+                      placeholder="Confirm Password"
+                      value={confirmPassword}
+                      onChange={handleConfirmPasswordChange}
                     />
                   </div>
                 </div>

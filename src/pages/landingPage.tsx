@@ -1,7 +1,12 @@
 import { Footer, Product, ShinyButton, Particles } from "../components/types";
 import { TypeAnimation } from "react-type-animation";
+import { GamesArray } from "../data/data";
 
 export default function LandingPage() {
+  const gameNames = GamesArray.flatMap((game, index) => {
+    return index < GamesArray.length - 1 ? [game.name, 1000] : [game.name];
+  });
+
   return (
     <>
       <div className="relative min-h-screen">
@@ -23,18 +28,7 @@ export default function LandingPage() {
                     for{" "}
                     <span className="inline-block text-cyan-500">
                       <TypeAnimation
-                        sequence={[
-                          "Valorant",
-                          1000,
-                          "Counter-Strike 2",
-                          1000,
-                          "Apex Legends",
-                          1000,
-                          "Fortnite",
-                          1000,
-                          "PUBG",
-                          1000,
-                        ]}
+                        sequence={gameNames}
                         wrapper="span"
                         speed={10}
                         style={{ fontSize: ".875em", display: "inline-block" }}
